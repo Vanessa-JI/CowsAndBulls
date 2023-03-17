@@ -53,18 +53,28 @@ public class GameDAO {
     //need to fix functionality to not add up already added exacts/partials and also to not
     // count a partial as number that has already been counted as an exact
     public boolean playRound(Integer[] userGuess, Integer[] answer) {
+        int[] guessResult = new int[]{-1, -1, -1, -1};
         for (int i = 0; i < answer.length; i++) {
             if (exacts == 4) {
                 return false;
             }
             if (userGuess[i].equals(answer[i])) {
-                exacts += 1;
+                guessResult[i] = 1;
             } else if (Arrays.asList(answer).contains(userGuess[i])) {
-                partials += 1;
+                guessResult[i] = 0;
             }
         }   // end of for loop
 
+        // update guessNumber, exacts, and partials
         guessNumber ++;
+        exacts = (int) Arrays.stream(guessResult)
+                .filter(num -> num == 1)
+                .count();
+        partials = (int) Arrays.stream(guessResult)
+                .filter(num -> num == 0)
+                .count();
+
+
 
         // once we have compared all the values in the user guess and the answer,
         // if we have not got 4 exacts, and the number of rounds is still less than
@@ -74,6 +84,7 @@ public class GameDAO {
 
         } else if ( (guessNumber < MAXGUESSES) ) {
             return true;
+
         } else { // final case is that we've run out of matches and haven't found the right answer
             return false;
         }

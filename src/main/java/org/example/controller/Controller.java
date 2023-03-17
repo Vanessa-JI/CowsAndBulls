@@ -66,6 +66,7 @@ public class Controller {
                 boolean result = dao.getGameResult(dao.exacts, dao.partials, dao.guessNumber, dao.MAXGUESSES);
                 if (result) {
                     view.displayWinnerBanner();
+                    play = false;
                 } else {
                     view.displayLoserBanner();
                 }
