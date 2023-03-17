@@ -2,13 +2,16 @@ package org.example.controller;
 
 import org.example.dao.GameDAO;
 import org.example.view.GameView;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 //import java.sql.MysqlDataSource;
 import java.util.Scanner;
 
 //@RestController
+//@RequestMapping("/api")
 public class Controller {
     private GameView view;
     private GameDAO dao;
@@ -19,6 +22,13 @@ public class Controller {
         this.view = view;
     }
 
+//    @GetMapping
+//    public String[] helloWorld() {
+//        String[] result = {"Hello", "World", "!"};
+//        return result;
+//    }
+
+//    @GetMapping
     public void startApp() {
 
         while (true) {

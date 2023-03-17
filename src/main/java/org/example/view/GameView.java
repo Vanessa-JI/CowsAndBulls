@@ -1,6 +1,6 @@
 package org.example.view;
 
-//import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class GameView {
 
     public static int displayMainMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to Bulls and Cows.");
+        System.out.println("\nWelcome to Bulls and Cows.");
         System.out.println("===========================\n");
         System.out.println("Pick an option:");
         System.out.println("1. Play a game");
