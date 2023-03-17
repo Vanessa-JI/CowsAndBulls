@@ -2,6 +2,7 @@ package org.example.view;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Scanner;
 
 //@Component
@@ -20,4 +21,36 @@ public class GameView {
         return selection;
     }
 
+    public void displayPlayGameBanner() {
+        System.out.println("\n===== PLAYING GAME =====\n");
+    }
+
+    public Integer[] getUserGuess() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Make your guess! Enter the first number: ");
+        int a = scan.nextInt();
+        System.out.println("Second number: ");
+        int b = scan.nextInt();
+        System.out.println("Third number: ");
+        int c = scan.nextInt();
+        System.out.println("Fourth number: ");
+        int d = scan.nextInt();
+
+        Integer[] answer = new Integer[]{a, b, c, d};
+        return answer;
+
+    }
+
+    public void printOutResults(int exacts, int partials) {
+        System.out.println("e:" + exacts + ":p:" + partials);
+    }
+
+    public void displayWinnerBanner() {
+
+        System.out.println("\nCongratulations! You won the game!\n");
+    }
+
+    public void displayLoserBanner() {
+        System.out.println("\nYou lost! Try again another time.\n");
+    }
 }
