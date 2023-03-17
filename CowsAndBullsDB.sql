@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS cowsandbullsDB;
+CREATE DATABASE cowsandbullsDB;
+
+USE cowsandbullsDB;
+
+CREATE TABLE games(
+gameID INT PRIMARY KEY AUTO_INCREMENT,
+answer CHAR(7) NOT NULL,
+inprogress BOOLEAN DEFAULT false, 
+result BOOLEAN);
