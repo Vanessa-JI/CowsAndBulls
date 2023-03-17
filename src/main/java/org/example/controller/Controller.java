@@ -1,27 +1,34 @@
 package org.example.controller;
 
-import org.example.view.MainMenu;
+import org.example.dao.GameDAO;
+import org.example.view.GameView;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
-import java.sql.SQLException;
 //import java.sql.MysqlDataSource;
 import java.util.Scanner;
 
+//@RestController
 public class Controller {
-    private MainMenu menu;
+    private GameView view;
+    private GameDAO dao;
 
-    public Controller(MainMenu menu) {
-        this.menu = menu;
+//    @Autowired
+    public Controller(GameDAO dao, GameView view) {
+        this.dao = dao;
+        this.view = view;
     }
 
     public void startApp() {
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
 
-            int selection = scanner.nextInt();
-            menu.displayMainMenu();
+            int selection = view.displayMainMenu();
 
+            switch (selection) {
+                case 1 -> System.out.println("playing");
+                case 2 -> System.out.println("displaying all");
+            }
 
         }
 
@@ -29,27 +36,10 @@ public class Controller {
     }
 
 
-//    private static DataSource getDataSource() throws SQLException {
-//        MysqlDataSource ds = new MysqlDataSource();
-//        ds.setServerName("localhost");
-//        ds.setDatabaseName("todoDB");
-//        ds.setUser("root");
-//        ds.setPassword("rootroot");
-//        ds.setServerTimezone("America/Chicago");
-//        ds.setUseSSL(false);
-//        ds.setAllowPublicKeyRetrieval(true);
-//
-//        return ds;
-//    }
-
 
     // generate the array of random numbers to be guessed
     public static void generateNumArr() {
 
 
-
-
     }
-
-
 }
