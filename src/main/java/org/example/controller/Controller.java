@@ -6,6 +6,7 @@ import org.example.service.GameService;
 import org.example.view.GameView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,8 @@ public class Controller {
     private GameDAO dao;
 
     private GameService service;
+    private Integer[] answer = new Integer[4];
+
 
     @Autowired
     public Controller(GameDAO dao, GameView view, GameService service) {
@@ -33,6 +36,7 @@ public class Controller {
 
 //        while (true) {
 
+            this.answer = dao.generateNumberArray();
             view.displayMainMenu();
 
 //            switch (selection) {
@@ -42,10 +46,10 @@ public class Controller {
 //        }
     }
 
-    @GetMapping("/playgame")
-    public void playGame() {
+
+    @PostMapping("/playgame")
+    public void playGame(int a, int b, int c, int d) {
         view.displayPlayGameBanner();
-        Integer[] answer = dao.generateNumberArray();
 
         for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
@@ -53,7 +57,8 @@ public class Controller {
 
         boolean play = true;
         while (play) {
-            Integer[] userGuess = view.getUserGuess();
+//            Integer[] userGuess = view.getUserGuess();
+            Integer[] userGuess = new Integer[] {a, b, c, d};
             boolean gameInProgress = dao.playRound(userGuess, answer);
 
             if (gameInProgress) {
@@ -84,15 +89,7 @@ public class Controller {
     public void displayAllGames() {
         view.displayAllGamesBanner();
         List<Game> games = dao.getAllGames();
-
-        for (Game game : games) {
-            System.out.printf("%s: %s -- %s -- %s\n",
-                    game.getId(),
-                    game.getAnswer(),
-                    game.getStatus(),
-                    game.isWon());
-        }
-        System.out.println("");
+        view.displayTableOfGames(games);
     }
 
 }

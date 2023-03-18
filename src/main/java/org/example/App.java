@@ -14,11 +14,6 @@ public class App {
 
         SpringApplication.run(App.class, args);
 
-
-//        GameDAO dao = new GameDAO();
-//        GameView view = new GameView();
-//        Controller controller = new Controller(dao, view);
-//        controller.startApp();
     }
 
 }

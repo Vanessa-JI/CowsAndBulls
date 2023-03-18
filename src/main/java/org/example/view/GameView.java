@@ -1,5 +1,6 @@
 package org.example.view;
 
+import org.example.dto.Game;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -56,5 +57,16 @@ public class GameView {
 
     public void displayAllGamesBanner() {
         System.out.println("\n===== DISPLAYING ALL GAME INFORMATION =====\n");
+    }
+
+    public void displayTableOfGames(List<Game> games) {
+        for (Game game : games) {
+            System.out.printf("%s: %s -- %s -- %s\n",
+                    game.getId(),
+                    game.getAnswer(),
+                    game.getStatus(),
+                    game.isWon());
+        }
+        System.out.println("");
     }
 }

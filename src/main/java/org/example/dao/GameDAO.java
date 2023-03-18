@@ -19,6 +19,10 @@ public class GameDAO {
     public int exacts = 0;
     public int partials = 0;
 
+    public GameDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
 
     public void listAll() {
 
