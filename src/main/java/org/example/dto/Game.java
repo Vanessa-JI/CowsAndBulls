@@ -6,14 +6,16 @@ public class Game {
     private int numberOfGuesses;
     private String answer;
     private boolean isWon;
+    private boolean status;
 
     public Game() {
 
     }
 
-    public Game(int id, int numberOfGuesses, String answer, boolean isWon) {
+    public Game(int id, boolean status, String answer, boolean isWon) {
         this.id = id;
-        this.numberOfGuesses = numberOfGuesses;
+//        this.numberOfGuesses = numberOfGuesses;
+        this.status = status;
         this.answer = answer;
         this.isWon = isWon;
     }
@@ -48,5 +50,13 @@ public class Game {
 
     public void setWon(boolean won) {
         isWon = won;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

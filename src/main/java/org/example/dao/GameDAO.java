@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.Random;
 
-//@Repository
+@Repository
 public class GameDAO {
-//    @Autowired
-    private JdbcTemplate jdbc;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     // could get user input to set the max guesses and length of the array to guess as an improvement?
     public static final int MAXGUESSES = 5;
@@ -22,7 +22,7 @@ public class GameDAO {
 
     public void listAll() {
 
-        List<Game> games = jdbc.query("SELECT * FROM todo", new GameRowMapper());
+        List<Game> games = jdbcTemplate.query("SELECT * FROM todo", new GameRowMapper());
         for (Game game : games) {
             System.out.printf("%s: %s -- %s -- %s\n",
                     game.getId(),
@@ -101,5 +101,10 @@ public class GameDAO {
         }
 
         return false;
+    }
+
+    public List<Game> getAllGames() {
+        List <Game> games = jdbcTemplate.query("SELECT * FROM games", new GameRowMapper());
+        return games;
     }
 }

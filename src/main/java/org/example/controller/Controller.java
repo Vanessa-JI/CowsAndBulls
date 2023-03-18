@@ -1,6 +1,8 @@
 package org.example.controller;
 
 import org.example.dao.GameDAO;
+import org.example.dto.Game;
+import org.example.service.GameService;
 import org.example.view.GameView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,41 +13,36 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Scanner;
 
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class Controller {
     private GameView view;
     private GameDAO dao;
 
-//    @Autowired
-    public Controller(GameDAO dao, GameView view) {
+    private GameService service;
+
+    @Autowired
+    public Controller(GameDAO dao, GameView view, GameService service) {
         this.dao = dao;
         this.view = view;
+        this.service = service;
     }
 
-//    @GetMapping
-//    public String[] helloWorld() {
-//        String[] result = {"Hello", "World", "!"};
-//        return result;
-//    }
-
-//    @GetMapping
+    @GetMapping
     public void startApp() {
 
-        while (true) {
+//        while (true) {
 
-            int selection = view.displayMainMenu();
+            view.displayMainMenu();
 
-            switch (selection) {
-                case 1 -> playGame();
-                case 2 -> System.out.println("displaying all");
-            }
-
-        }
-
-
+//            switch (selection) {
+//                case 1 -> playGame();
+//                case 2 -> displayAllGames();
+//            }
+//        }
     }
 
+    @GetMapping("/playgame")
     public void playGame() {
         view.displayPlayGameBanner();
         Integer[] answer = dao.generateNumberArray();
@@ -53,7 +50,6 @@ public class Controller {
         for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
         }
-
 
         boolean play = true;
         while (play) {
@@ -84,10 +80,19 @@ public class Controller {
         // 5. play rounds until rounds are up
     }
 
+    @GetMapping("/displaygames")
+    public void displayAllGames() {
+        view.displayAllGamesBanner();
+        List<Game> games = dao.getAllGames();
 
-    // generate the array of random numbers to be guessed
-    public static void generateNumArr() {
-
-
+        for (Game game : games) {
+            System.out.printf("%s: %s -- %s -- %s\n",
+                    game.getId(),
+                    game.getAnswer(),
+                    game.getStatus(),
+                    game.isWon());
+        }
+        System.out.println("");
     }
+
 }

@@ -5,20 +5,20 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Scanner;
 
-//@Component
+@Component
 public class GameView {
 
-    public static int displayMainMenu() {
-        Scanner scanner = new Scanner(System.in);
+    public static void displayMainMenu() {
+//        Scanner scanner = new Scanner(System.in);
         System.out.println("\nWelcome to Bulls and Cows.");
         System.out.println("===========================\n");
         System.out.println("Pick an option:");
         System.out.println("1. Play a game");
         System.out.println("2. See all game statistics");
         System.out.println("3. Exit");
-        int selection = scanner.nextInt();
+//        int selection = scanner.nextInt();
 
-        return selection;
+//        return selection;
     }
 
     public void displayPlayGameBanner() {
@@ -52,5 +52,9 @@ public class GameView {
 
     public void displayLoserBanner() {
         System.out.println("\nYou lost! Try again another time.\n");
+    }
+
+    public void displayAllGamesBanner() {
+        System.out.println("\n===== DISPLAYING ALL GAME INFORMATION =====\n");
     }
 }

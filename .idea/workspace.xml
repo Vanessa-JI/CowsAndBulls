@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a95d4a6c-2d68-4f55-9588-09ae4f417802" name="Changes" comment="Play game functionality almost there - need to fix exacts and partials count">
+    <list default="true" id="a95d4a6c-2d68-4f55-9588-09ae4f417802" name="Changes" comment="Play game works -- weird bug where it says you've won the game even when one partial exists?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CowsAndBullsDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CowsAndBullsDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/GameRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/GameRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +51,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -83,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679079470678</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Play game works -- weird bug where it says you've won the game even when one partial exists?">
+      <created>1679085915086</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679085915086</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -91,6 +107,18 @@
     <MESSAGE value="Main menu functionality works" />
     <MESSAGE value="Spring functionality not working but progress made" />
     <MESSAGE value="Play game functionality almost there - need to fix exacts and partials count" />
-    <option name="LAST_COMMIT_MESSAGE" value="Play game functionality almost there - need to fix exacts and partials count" />
+    <MESSAGE value="Play game works -- weird bug where it says you've won the game even when one partial exists?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Play game works -- weird bug where it says you've won the game even when one partial exists?" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

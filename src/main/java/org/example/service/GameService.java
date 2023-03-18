@@ -1,5 +1,8 @@
 package org.example.service;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameService {
     private int[] randomNums;
     public static final int MAXNUMBEROFGOES = 5; // static is shared!!!

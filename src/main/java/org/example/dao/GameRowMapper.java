@@ -8,11 +8,12 @@ import java.sql.SQLException;
 
 public class GameRowMapper implements RowMapper {
 
+    @Override
     public Game mapRow(ResultSet rs, int rowNum) throws SQLException {
         Game a = new Game();
         a.setId(rs.getInt(1));
         a.setAnswer(rs.getString(2));
-        a.setNumberOfGuesses(rs.getInt(3));
+        a.setStatus(rs.getBoolean(3));
         a.setWon(rs.getBoolean(4));
         // System.out.println(a.toString());
         return a;
