@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 //import java.sql.MysqlDataSource;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class Controller {
     private GameDAO dao;
 
     private GameService service;
-    private Integer[] answer = new Integer[4];
+    private String answer;
 
 
     @Autowired
@@ -29,6 +30,7 @@ public class Controller {
         this.dao = dao;
         this.view = view;
         this.service = service;
+        this.answer = this.service.generateNumberArray();
     }
 
     @GetMapping
@@ -36,7 +38,7 @@ public class Controller {
 
 //        while (true) {
 
-            this.answer = dao.generateNumberArray();
+//            this.answer = dao.generateNumberArray();
             view.displayMainMenu();
 
 //            switch (selection) {
@@ -46,33 +48,66 @@ public class Controller {
 //        }
     }
 
+    @GetMapping("/displaygames")
+    public void displayAllGames() {
+        view.displayAllGamesBanner();
+        List<Game> games = service.getAllGames();
+        view.displayTableOfGames(games);
+    }
 
     @PostMapping("/playgame")
-    public void playGame(int a, int b, int c, int d) {
+    public void playGame(char a, char b, char c, char d) {
         view.displayPlayGameBanner();
+        // create a new Game record and insert into table
+        Game game = new Game();
+        game.setStatus(true);
+        game.setAnswer(answer);
+        service.insertRecord(game);
 
-        for (int i = 0; i < answer.length; i++) {
-            System.out.println(answer[i]);
+        for (int i = 0; i < answer.length(); i++) {
+            System.out.println(answer.charAt(i));
         }
 
-        boolean play = true;
-        while (play) {
-//            Integer[] userGuess = view.getUserGuess();
-            Integer[] userGuess = new Integer[] {a, b, c, d};
-            boolean gameInProgress = dao.playRound(userGuess, answer);
-
-            if (gameInProgress) {
-                view.printOutResults(dao.exacts, dao.partials);
+        String userGuess = Character.toString(a).concat(Character.toString(b)).concat(Character.toString(c)).concat(Character.toString(d)); // may need to have a look at this
+        boolean gameInProgress = service.playRound(userGuess, answer);
+        if (gameInProgress) {
+            view.printOutResults(service.exacts, service.partials);
+        } else {
+            boolean result = service.getGameResult(service.exacts, service.partials, service.guessNumber, service.MAXGUESSES);
+            if (result) {
+                view.displayWinnerBanner();
+                game.setWon(true);
             } else {
-                boolean result = dao.getGameResult(dao.exacts, dao.partials, dao.guessNumber, dao.MAXGUESSES);
-                if (result) {
-                    view.displayWinnerBanner();
-                    play = false;
-                } else {
-                    view.displayLoserBanner();
-                }
+                view.displayLoserBanner();
+                game.setWon(false);
             }
         }
+    }
+
+
+//
+//        boolean play = true;
+//        while (play) {
+////            Integer[] userGuess = view.getUserGuess();
+//            String userGuess = String.valueOf(a + b + c + d); // may need to have a look at this
+//            boolean gameInProgress = dao.playRound(userGuess, answer);
+//
+//            if (gameInProgress) {
+//                view.printOutResults(dao.exacts, dao.partials);
+//            } else {
+//                boolean result = dao.getGameResult(dao.exacts, dao.partials, dao.guessNumber, dao.MAXGUESSES);
+//                if (result) {
+//                    view.displayWinnerBanner();
+//                    game.setWon(true);
+//                    play = false;
+//                } else {
+//                    view.displayLoserBanner();
+//                    game.setWon(false);
+//                }
+//            }
+//        } // end of while loop
+
+//        game.setStatus(false);
 
         // return a boolean to see if playRounds is still eligible
         // to play the game:
@@ -83,13 +118,5 @@ public class Controller {
             // return boolean to say if game is still in progress (exacts !=4)
         // 4. Print out partials and exacts to the user if game is still in progress
         // 5. play rounds until rounds are up
-    }
-
-    @GetMapping("/displaygames")
-    public void displayAllGames() {
-        view.displayAllGamesBanner();
-        List<Game> games = dao.getAllGames();
-        view.displayTableOfGames(games);
-    }
 
 }

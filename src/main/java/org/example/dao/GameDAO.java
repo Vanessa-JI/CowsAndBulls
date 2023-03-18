@@ -39,76 +39,37 @@ public class GameDAO {
     }
 
 
-    public Integer[] generateNumberArray() {
-        Set<Integer> answer = new HashSet<>();
-        Random random = new Random();
-
-        while (answer.size() < 4) {
-            int randomNumber = random.nextInt(10);
-            answer.add(randomNumber);
-        }
-
-        Integer[] answerArr = new Integer[answer.size()]; // create an array with the same size as the set
-        answer.toArray(answerArr); // copy the elements of the set to the array
-
-        return answerArr;
-    }
-
-    //need to fix functionality to not add up already added exacts/partials and also to not
-    // count a partial as number that has already been counted as an exact
-    public boolean playRound(Integer[] userGuess, Integer[] answer) {
-        int[] guessResult = new int[]{-1, -1, -1, -1};
-        for (int i = 0; i < answer.length; i++) {
-            if (exacts == 4) {
-                return false;
-            }
-            if (userGuess[i].equals(answer[i])) {
-                guessResult[i] = 1;
-            } else if (Arrays.asList(answer).contains(userGuess[i])) {
-                guessResult[i] = 0;
-            }
-        }   // end of for loop
-
-        // update guessNumber, exacts, and partials
-        guessNumber ++;
-        exacts = (int) Arrays.stream(guessResult)
-                .filter(num -> num == 1)
-                .count();
-        partials = (int) Arrays.stream(guessResult)
-                .filter(num -> num == 0)
-                .count();
-
-
-
-        // once we have compared all the values in the user guess and the answer,
-        // if we have not got 4 exacts, and the number of rounds is still less than
-        // the maximum number of guesses, we continue playing
-        if (exacts == 4) {
-            return false;
-
-        } else if ( (guessNumber < MAXGUESSES) ) {
-            return true;
-
-        } else { // final case is that we've run out of matches and haven't found the right answer
-            return false;
-        }
-
-    }
-
-
-
-    public boolean getGameResult(int exacts, int partials, int guessNumber, int maxguesses) {
-
-        // the only condition if you win is if the maximum number of guesses
-        if ( (exacts == 4) && (guessNumber <= maxguesses) ) {
-            return true;
-        }
-
-        return false;
-    }
+//    public String generateNumberArray() {
+//        Set<Integer> answer = new HashSet<>();
+//        Random random = new Random();
+//
+//        while (answer.size() < 4) {
+//            int randomNumber = random.nextInt(10);
+//            answer.add(randomNumber);
+//        }
+//
+//        String answerStr = new String();
+//
+//        StringBuilder sb = new StringBuilder();
+//        for (int num : answer) {
+//            sb.append(num);
+//        }
+//
+//        answerStr = sb.toString();
+//
+////        Integer[] answerArr = new Integer[answer.size()]; // create an array with the same size as the set
+////        answer.toArray(answerArr); // copy the elements of the set to the array
+//
+//        return answerStr;
+//    }
 
     public List<Game> getAllGames() {
         List <Game> games = jdbcTemplate.query("SELECT * FROM games", new GameRowMapper());
         return games;
+    }
+
+    public void insertRecord(String insertString, String ans, boolean inProg, boolean iswon) {
+        jdbcTemplate.update(insertString, ans, inProg, iswon);
+//        System.out.println("Result of insert is " +result);
     }
 }
