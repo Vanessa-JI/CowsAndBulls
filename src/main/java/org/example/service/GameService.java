@@ -47,11 +47,16 @@ public class GameService {
         this.partials = partials;
     }
 
-
+    /**
+     *
+     */
     public void listAll() {
         dao.listAll();
     }
 
+    /**
+     *
+     */
     public String generateNumberArray() {
         Set<Integer> answer = new HashSet<>();
         Random random = new Random();
@@ -73,7 +78,9 @@ public class GameService {
         return answerStr;
     }
 
-
+    /**
+     *
+     */
     public boolean playRound(String userGuess, String answer) {
         int[] guessResult = new int[]{-1, -1, -1, -1};
         for (int i = 0; i < answer.length(); i++) {
@@ -112,7 +119,9 @@ public class GameService {
 
     }
 
-
+    /**
+     *
+     */
     public boolean getGameResult(int exacts, int guessNumber, int maxguesses) {
 
         // the only condition that you win is if the maximum number of guesses
@@ -122,11 +131,16 @@ public class GameService {
         return false;
     }
 
-
+    /**
+     *
+     */
     public List<Game> getAllGames() {
         return dao.getAllGames();
     }
 
+    /**
+     *
+     */
     public void insertRecord(Game game) {
         String ans = game.getAnswer();
         boolean isWon = game.isWon();
@@ -136,6 +150,9 @@ public class GameService {
         dao.insertRecord(insertString, ans, inProg, isWon);
     }
 
+    /**
+     *
+     */
     public List <Game> getGameInformation(int id) {
         return dao.getGameByID(id);
     }

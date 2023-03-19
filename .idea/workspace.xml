@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a95d4a6c-2d68-4f55-9588-09ae4f417802" name="Changes" comment="Implemented service layer functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TestApplicationConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/dao/GameDAOTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/service/GameServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+    <list default="true" id="a95d4a6c-2d68-4f55-9588-09ae4f417802" name="Changes" comment="Implemented unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/GameRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/GameRowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/dao/GameDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/dao/GameDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679153254150</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implemented unit tests">
+      <created>1679222539429</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679222539429</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -153,14 +157,15 @@
     <MESSAGE value="Can display all game outcomes with postman" />
     <MESSAGE value="JDBCTemp is properly configured in applications.properties and injected into the GameDAO" />
     <MESSAGE value="Implemented service layer functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented service layer functionality" />
+    <MESSAGE value="Implemented unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java</url>
-          <line>34</line>
+          <line>44</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

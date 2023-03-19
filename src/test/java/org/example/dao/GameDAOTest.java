@@ -44,8 +44,9 @@ public class GameDAOTest extends TestCase {
                 "values (?, ?, ?)";
         dao.insertRecord(insertString, game.getAnswer(), game.getStatus(), game.isWon());
 
-        Game fromDao = dao.getGameByID(game.getId());
+        List<Game> fromDao = dao.getGameByID(game.getId());
+        Game testGame = fromDao.get(0);
 
-        assertEquals(game, fromDao);
+        assertEquals(game, testGame);
     }
 }

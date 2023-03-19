@@ -1,7 +1,6 @@
 package org.example.dao;
 
 import org.example.dto.Game;
-//import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +8,9 @@ import java.sql.SQLException;
 public class GameRowMapper implements RowMapper {
 
     @Override
+    /**
+     *
+     */
     public Game mapRow(ResultSet rs, int rowNum) throws SQLException {
         Game a = new Game();
         a.setId(rs.getInt(1));

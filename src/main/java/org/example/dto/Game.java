@@ -16,7 +16,6 @@ public class Game {
 
     public Game(int id, boolean status, String answer, boolean isWon) {
         this.id = id;
-//        this.numberOfGuesses = numberOfGuesses;
         this.status = status;
         this.answer = answer;
         this.isWon = isWon;
@@ -32,10 +31,6 @@ public class Game {
 
     public int getNumberOfGuesses() {
         return numberOfGuesses;
-    }
-
-    public void setNumberOfGuesses(int numberOfGuesses) {
-        this.numberOfGuesses = numberOfGuesses;
     }
 
     public String getAnswer() {
