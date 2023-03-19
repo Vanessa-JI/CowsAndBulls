@@ -1,5 +1,7 @@
 package org.example.dto;
 
+import java.util.Objects;
+
 public class Game {
 
     private int id;
@@ -58,5 +60,17 @@ public class Game {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Game game)) return false;
+        return getId() == game.getId() && getNumberOfGuesses() == game.getNumberOfGuesses() && isWon() == game.isWon() && getStatus() == game.getStatus() && getAnswer().equals(game.getAnswer());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNumberOfGuesses(), getAnswer(), isWon(), getStatus());
     }
 }

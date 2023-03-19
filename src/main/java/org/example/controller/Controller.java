@@ -9,27 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-//import java.sql.MysqlDataSource;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 @RestController
 @RequestMapping("/api")
 public class Controller {
     private GameView view;
-    private GameDAO dao;
-
     private GameService service;
     private String answer;
+    private GameDAO dao;
 
 
     @Autowired
-    public Controller(GameDAO dao, GameView view, GameService service) {
-        this.dao = dao;
+    public Controller(GameView view, GameService service, GameDAO dao) {
         this.view = view;
-        this.service = service;
+        this.service = new GameService(dao);
         this.answer = this.service.generateNumberArray();
     }
 
@@ -38,7 +32,6 @@ public class Controller {
 
 //        while (true) {
 
-//            this.answer = dao.generateNumberArray();
             view.displayMainMenu();
 
 //            switch (selection) {
@@ -53,6 +46,15 @@ public class Controller {
         view.displayAllGamesBanner();
         List<Game> games = service.getAllGames();
         view.displayTableOfGames(games);
+    }
+
+    @GetMapping("/gamebyid")
+    public void getGameByID(int id) {
+        view.displayGameBanner(id);
+        List <Game> games = service.getGameInformation(id);
+        if (games != null) {
+            view.displayGameInformation(games);
+        }
     }
 
     @PostMapping("/playgame")
@@ -73,7 +75,7 @@ public class Controller {
         if (gameInProgress) {
             view.printOutResults(service.exacts, service.partials);
         } else {
-            boolean result = service.getGameResult(service.exacts, service.partials, service.guessNumber, service.MAXGUESSES);
+            boolean result = service.getGameResult(service.exacts, service.guessNumber, service.MAXGUESSES);
             if (result) {
                 view.displayWinnerBanner();
                 game.setWon(true);

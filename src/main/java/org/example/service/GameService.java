@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.dao.GameDAO;
-import org.example.dao.GameRowMapper;
 import org.example.dto.Game;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +17,11 @@ public class GameService {
     public GameService(GameDAO dao) {
         this.dao = dao;
     }
+
+    public GameService() {
+
+    }
+
 
     public int getGuessNumber() {
         return guessNumber;
@@ -109,7 +113,7 @@ public class GameService {
     }
 
 
-    public boolean getGameResult(int exacts, int partials, int guessNumber, int maxguesses) {
+    public boolean getGameResult(int exacts, int guessNumber, int maxguesses) {
 
         // the only condition that you win is if the maximum number of guesses
         if ((exacts == 4) && (guessNumber <= maxguesses)) {
@@ -131,4 +135,9 @@ public class GameService {
                 "values (?, ?, ?)";
         dao.insertRecord(insertString, ans, inProg, isWon);
     }
+
+    public List <Game> getGameInformation(int id) {
+        return dao.getGameByID(id);
+    }
+
 }

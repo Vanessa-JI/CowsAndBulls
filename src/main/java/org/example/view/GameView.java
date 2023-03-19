@@ -69,4 +69,19 @@ public class GameView {
         }
         System.out.println("");
     }
+
+    public void displayGameBanner(int id) {
+        System.out.println("\n===== DISPLAYING GAME INFO =====\n");
+        System.out.println("Game " + id + ": ");
+    }
+
+    public void displayGameInformation(List <Game> games) {
+        for (Game game : games) {
+            System.out.printf("%s: %s -- %s -- %s\n",
+                    game.getId(),
+                    game.getAnswer(),
+                    game.getNumberOfGuesses(),
+                    game.isWon());
+        }
+    }
 }
