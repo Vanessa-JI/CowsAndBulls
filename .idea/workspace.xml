@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a95d4a6c-2d68-4f55-9588-09ae4f417802" name="Changes" comment="Implemented unit tests">
+    <list default="true" id="a95d4a6c-2d68-4f55-9588-09ae4f417802" name="Changes" comment="Added documentation to the controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/GameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/GameRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/GameRowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/dao/GameDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/dao/GameDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679222539429</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added documentation to the controller">
+      <created>1679235991955</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679235991956</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -158,7 +163,8 @@
     <MESSAGE value="JDBCTemp is properly configured in applications.properties and injected into the GameDAO" />
     <MESSAGE value="Implemented service layer functionality" />
     <MESSAGE value="Implemented unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented unit tests" />
+    <MESSAGE value="Added documentation to the controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added documentation to the controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

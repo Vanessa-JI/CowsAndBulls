@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Game {
 
+    // defining private member variables
     private int id;
     private int numberOfGuesses;
     private String answer;
@@ -11,9 +12,9 @@ public class Game {
     private boolean status;
 
     public Game() {
-
     }
 
+    // constructor initialises the appropriate member variables
     public Game(int id, boolean status, String answer, boolean isWon) {
         this.id = id;
         this.status = status;
@@ -21,6 +22,7 @@ public class Game {
         this.isWon = isWon;
     }
 
+    // defining the appropriate accessors and mutators
     public int getId() {
         return id;
     }
@@ -33,9 +35,7 @@ public class Game {
         return numberOfGuesses;
     }
 
-    public String getAnswer() {
-        return answer;
-    }
+    public String getAnswer() { return answer; }
 
     public void setAnswer(String answer) {
         this.answer = answer;
@@ -57,11 +57,13 @@ public class Game {
         this.status = status;
     }
 
+    // Implementing the equals and hashCode methods to ensure tests can be run
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Game game)) return false;
-        return getId() == game.getId() && getNumberOfGuesses() == game.getNumberOfGuesses() && isWon() == game.isWon() && getStatus() == game.getStatus() && getAnswer().equals(game.getAnswer());
+        return getId() == game.getId() && getNumberOfGuesses() == game.getNumberOfGuesses() && isWon() == game.isWon()
+                && getStatus() == game.getStatus() && getAnswer().equals(game.getAnswer());
     }
 
     @Override
